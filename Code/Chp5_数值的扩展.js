@@ -22,4 +22,4 @@ console.log(Number.isNaN("true" / 5)); // t
 console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER)); // t
 console.log(Number.isSafeInteger(Number.MAX_SAFE_INTEGER + 1)); // f
 
-// ES2020 BigInt
+// ES2020 BigInt 新的数据类型
