@@ -19,6 +19,17 @@ result.value.then(function (data) {
   console.log("Promise Error");
 });
 
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Point.prototype.toString = function () {
+  return '(' + this.x + ', ' + this.y + ')';
+};
+
+var p = new Point(1, 2);
+console.log(p.toString());
 // // 1. 数组转成树状结构
 // var obj = [
 //   { id: 3, parent: 2 },
