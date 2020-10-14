@@ -1,4 +1,4 @@
-### **Topic 1: JS基本概念
+### Topic 1: JS基本概念
 
 1. ES6 新增的 Let 和 Const
    * 两者均是新增声明命令, let 用于变量, const 用于常量
