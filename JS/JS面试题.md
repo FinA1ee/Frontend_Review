@@ -1,11 +1,3 @@
-### 前端中的面向对象
-
-对象的使用不需要担心内部实现
-
-- 封装，继承，多态
-
-
-
 ### Topic 1: JS基本概念
 
 ### 强类型和弱类型
@@ -113,7 +105,7 @@
 
      
 
-9. 判断对象为空
+6. 判断对象为空
 
    - 将JSON对象转换为字符串，判断是否为空
 
@@ -123,31 +115,7 @@
 
      
 
-7. call vs apply vs bind
-
-   - 用途：改变this的指向, 第一个参数都是this需要指向的对象
-
-   - call和apply直接执行函数，apply将参数放在数组中
-
-   - bind返回一个新函数，需要手动调用
-
-     ```javascript
-     // 代理console.log
-     function log(){
-       console.log.apply(null, arguments)	// 第一个参数为null，代表指向全局对象window或者global
-     }
-     log(1, 'www', '&&&')	// 1 "www" "&&&"
-     
-     // 进阶：开头加上（app）：
-     function log(){
-       var args = Array.prototype.slice.call(arguments)	// 需要将伪数组转化为标准数组
-     	args.unshift('(app)')
-     	console.log.apply(null, args)
-     }
-     log(1, '***')	// (app) 1 ***
-     ```
-
-     
+   
 
 
 ### **Topic 2: JS中的数据类型**
@@ -929,54 +897,6 @@ DOM方法例如document.getElementByTagName( )返回一个类数组对象，方�
   ```
 
   
-
-## **Topic 7: 函数**
-
-函数挂载在一个对象里，称为对象的方法。该对象是函数的上下文，也是函数内的this的指向。
-
-### 函数定义
-
-```javascript
-// 两种定义方法
-function foo(){}
-var foo = function(){}
-
-// 嵌套定义
-function f1(a, b) {
-  function square(x) {
-    return x * x;
-  }
-  return square(a) + square(b);
-}
-```
-
-### 函数调用
-
-- 作为函数调用
-- 作为方法调用
-- 作为构造函数调用
-- call( ), apply( )间接调用
-
-```javascript
-// 对象中的嵌套调用, 不继承this
-var o = {
-  m: function () {
-    var self = this;
-    console.log(this === o);
-    f();
-
-    function f() {
-      console.log(this === o); // false
-      console.log(this); // 指向全局对象或undefined
-      console.log(self === o); // true
-    }
-  },
-};
-
-o.m();
-```
-
-
 
 
 
