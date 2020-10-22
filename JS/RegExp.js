@@ -6,7 +6,7 @@ var pattern3 = /^[01]+$/; // 二进制数字
 var pattern4 = /^[^0][0-9]?$/; // 非零的十进制数字
 var pattern5 = /(^0[1-9]$)|(^1[1-2]$)/; // 01, 02, 03 ... 12
 var pattern6 = /^[a-zA-Z0-9]{6,13}@qq.com$/; // 6-13位qq号
-
+pattern1.exec;
 console.log(pattern1.test("123456789@126.com"));
 console.log(pattern1.test("abcde1fgh@126.com"));
 console.log(pattern1.test("defgaba"));

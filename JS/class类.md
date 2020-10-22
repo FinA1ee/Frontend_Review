@@ -1,0 +1,62 @@
+## class类
+
+### 类的定义
+
+JS的对象是一个属性集合，相互之间没有联系。
+
+但同时可以定义对象的类，让对象共享某些属性。所有实例对象都从同一个原型对象上继承属性。
+
+```javascript
+// 使用构造函数定义一个类
+function Range(from, to) {
+  this.from = from;
+  this.to = to;
+}
+
+Range.prototype = {
+  includes: function (x) {
+    return this.from <= x && x <= this.to;
+  },
+};
+
+var r = new Range(1, 3);
+console.log(r instanceof Range); // r继承自Range.prototype 返回true
+console.log(r.includes(2)); 
+
+// 例子2
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.getName = function () { // 扩展预定义的prototype对象, 而不是重写
+  console.log("My name is", this.name);
+};
+
+var p1 = new Person("Jack", 23);
+p1.getName();
+console.log(Person.prototype.constructor === Person);
+```
+
+### 检测对象的类
+
+- instanceof 运算符
+
+- constructor属性
+
+  ```javascript
+  o instanceof c // 查看o是否继承自c.prototype, 可以不是直接继承
+  var date = new Date(); date.contructor === Date; // 查看date的constructor属性
+```
+  
+
+### 子类
+
+
+
+
+
+
+
+
+

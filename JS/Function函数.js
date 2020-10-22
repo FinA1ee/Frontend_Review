@@ -239,7 +239,7 @@ function memorize(f) {
   var cache = {}; // 值存在闭包内
   return function () {
     console.log(cache);
-    var key = arguments[0]; // 3 {"2": 2, "1":1, "0": 1}
+    var key = arguments[0];
     if (key in cache) return cache[key];
     else return (cache[key] = f.apply(this, arguments));
   };
@@ -256,6 +256,3 @@ var fib = memorize(function (n) {
 });
 
 console.log("Fib: ", fib(3));
-//    fib(2)       fib(1)
-// fib(1)  fib(0)    1
-//    1      1
