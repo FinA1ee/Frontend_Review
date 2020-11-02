@@ -114,3 +114,10 @@ console.log(obj6.toJSON());
 
 var obj8 = { x: "x", obj8: obj8 };
 console.log(obj8.obj8);
+
+// 深拷贝
+var obj9 = { x: 0, y: 1 };
+var obj10 = JSON.parse(JSON.stringify(obj9));
+console.log(obj9, obj10);
+obj10.x = 2;
+console.log(obj9, obj10);

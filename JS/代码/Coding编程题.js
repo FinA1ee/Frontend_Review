@@ -154,19 +154,19 @@ function* gen() {
 }
 
 // 执行
-var g = gen();
-var result = g.next();
+// var g = gen();
+// var result = g.next();
 
-result.value
-  .then(function (data) {
-    return data.json();
-  })
-  .then(function (data) {
-    g.next(data);
-  })
-  .catch(function (err) {
-    console.log("Promise Error");
-  });
+// result.value
+//   .then(function (data) {
+//     return data.json();
+//   })
+//   .then(function (data) {
+//     g.next(data);
+//   })
+//   .catch(function (err) {
+//     console.log("Promise Error");
+//   });
 
 function Point(x, y) {
   this.x = x;
@@ -255,3 +255,39 @@ console.log(p.toString());
 // }
 // console.log(a);
 // // console.log(b);
+
+// 实现防抖函数
+console.log("实现防抖函数");
+function debounce(callback, delay) {
+  var timer = null;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      callback.apply(this, args);
+    }, delay);
+  };
+}
+
+// function testDebounce(e, content) {
+//   console.log(e, content);
+// }
+// var testDebounceFn = debounce(testDebounce, 1000); // 防抖函数
+// document.onmousemove = function (e) {
+//   testDebounceFn(e, "debounce"); // 给防抖函数传参
+// };
+
+// 实现节流函数
+console.log("实现节流函数");
+function throttle(callback, delay = 500) {
+  var flag = true;
+  return (...args) => {
+    if (!flag) {
+      return;
+    }
+    flag = false;
+    setTimeout(() => {
+      callback.apply(this, args);
+      flag = true;
+    }, delay);
+  };
+}

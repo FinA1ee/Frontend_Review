@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="counter">0</p>
+    <button type="button" onclick="testDebounceFn('debounce')">Click Me</button>
+  </body>
+  <script>
+    function debounce(callback, delay) {
+      let timer = null;
+      return function () {
+        let args = arguments;
+        if (timer) {
+          clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+          callback.apply(this, args);
+        }, delay);
+      };
+    }
+    function testDebounce(e, content) {
+      console.log(e, content);
+    }
+    var testDebounceFn = debounce(testDebounce, 1000); // 防抖函数
+    document.onmousemove = function (e) {
+      testDebounceFn(e, "debounce"); // 给防抖函数传参
+    };
+  </script>
+</html>

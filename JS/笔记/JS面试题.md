@@ -125,18 +125,23 @@ var a = null; // typeof(a) 是对象, 值为null
 var a = undefined; // typeof(a) 是undefined, 值为undefined
 ```
 
-### JS如何进行数据类型转化
+### JS如何进行数据类型转化？
 
 - 转成数字类型：Number( ), parseInt( ), parseFloat( )
 - 转成字符串：toString( ), String( )
 
-### JS如何判断数据类型
+### JS如何判断数据类型？
 
 - typeof i.e null -> object
 - instanceof 通过原型链判断继承
 - Object.prototype.toString
 
+### JS中对象如何进行深拷贝？
 
+```javascript
+// 局限性：无法克隆特殊对象, 抛弃constructor, 循环引用会报错
+const newObj = JSON.parse(JSON.stringify(oldObj));
+```
 
 
 
